@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>駅名標ジェネレータ by さいほうへいき</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     :root{--bg:#f6fbff;--card:#fff;--muted:#6b8296;--accent:#cfe8ff;--btn-bg:#fff;--btn-border:#d9eefc}
     *{box-sizing:border-box}
@@ -28,7 +29,8 @@
     /* header youtube button */
     .header-actions{display:flex;gap:8px;align-items:center}
     .sns-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;background:var(--btn-bg);border:1px solid var(--btn-border);cursor:pointer;text-decoration:none;color:inherit;font-weight:600}
-    .sns-icon{width:18px;height:18px;display:inline-block}
+    .sns-btn i{font-size:20px;line-height:1;}
+    .sns-btn{display:inline-flex;align-items:center;gap:8px;}
     /* bottom area */
     .bottom-area{max-width:1200px;margin:12px auto;padding:0 18px 60px}
     /* changed to a single-column layout */
@@ -39,6 +41,8 @@
     .notice{background:#fff7f0;border-left:4px solid #ffd1a8;padding:12px;border-radius:8px;color:#5a3b2b}
     .howto{background:#f7fffb;border-left:4px solid #c8ffd9;padding:12px;border-radius:8px;color:#2e6b00}
     a.sns-btn:hover{opacity:0.95}
+    .preview-buttons{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap;}
+    .preview-buttons button{padding:12px 20px;font-size:15px;}
   </style>
 </head>
 <body>
@@ -46,12 +50,12 @@
     <h1>駅名標ジェネレータ by さいほうへいき</h1>
     <div class="header-actions">
       <!-- Header YouTube button (opens in new tab) -->
-      <a class="sns-btn" href="https://www.youtube.com/@saihou-heiki" target="_blank" rel="noopener noreferrer" title="さいほうへいき YouTube">
-        <svg class="sns-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path fill="#FF0000" d="M23.5 6.2s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C16.6 2.5 12 2.5 12 2.5h-.1s-4.6 0-8.6.2c-.4 0-1.3.1-2.1 1C.7 4.5.5 6.2.5 6.2S.2 8.3.2 10.5v1.1c0 2.2.3 4.3.3 4.3s.2 1.7.8 2.4c.8.9 1.9.9 2.4 1 1.7.2 7.3.2 7.3.2s4.6 0 8.6-.2c.4 0 1.3-.1 2.1-1 .6-.7.8-2.4.8-2.4s.3-2.1.3-4.3V10.5c0-2.2-.3-4.3-.3-4.3z"/>
-          <path fill="#fff" d="M10 15.5l6-3.5-6-3.5z"/>
-        </svg>
-        YouTube
+      <a class="sns-btn"
+         href="https://www.youtube.com/@saihou-heiki"
+         target="_blank"
+         rel="noopener noreferrer">
+          <i class="bi bi-youtube"></i>
+          YouTube
       </a>
     </div>
   </header>
@@ -61,6 +65,12 @@
       <h2>プレビュー</h2>
       <div class="preview">
         <canvas id="preview" width="1200" height="600" aria-label="駅名標プレビュー"></canvas>
+      </div>
+
+      <div class="preview-buttons">
+          <button id="resetBtn">初期化</button>
+          <button id="surpriseBtn">私を驚かせてください！</button>
+          <button id="downloadBtn">PNGでダウンロード</button>
       </div>
     </section>
 
@@ -112,13 +122,6 @@
             <option value="between">ビトウィーン型</option>
           </select>
         </label>
-
-        <div class="row">
-          <button id="resetBtn">初期化</button>
-          <button id="surpriseBtn">私を驚かせてください！</button>
-          <button id="downloadBtn">PNGでダウンロード</button>
-        </div>
-        <div class="muted">明日は明日の風が吹く。</div>
       </div>
     </aside>
   </main>
@@ -129,21 +132,39 @@
       <div class="card">
         <h2>作者と SNS</h2>
         <p class="small-muted">作者：さいほうへいき</p>
+        <p class="small-muted">YouTubeやTwitter、カクヨムやnoteなどかなり幅広いジャンルで下手の横好きをやってます。ぜひよろしくね。</p>
         <div class="socials" style="margin-top:8px;">
           <!-- Replace href values with actual social URLs -->
           <a class="sns-btn" href="https://youtube.com/@saihou-heiki" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <svg class="sns-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path fill="#FF0000" d="M23.5 6.2s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C16.6 2.5 12 2.5 12 2.5h-.1s-4.6 0-8.6.2c-.4 0-1.3.1-2.1 1C.7 4.5.5 6.2.5 6.2S.2 8.3.2 10.5v1.1c0 2.2.3 4.3.3 4.3s.2 1.7.8 2.4c.8.9 1.9.9 2.4 1 1.7.2 7.3.2 7.3.2s4.6 0 8.6-.2c.4 0 1.3-.1 2.1-1 .6-.7.8-2.4.8-2.4s.3-2.1.3-4.3V10.5c0-2.2-.3-4.3-.3-4.3z"/>
-              <path fill="#fff" d="M10 15.5l6-3.5-6-3.5z"/>
-            </svg>
-            YouTube
+            <i class="bi bi-youtube"></i>
+            YouTube(メイン)
+          </a>
+
+          <a class="sns-btn" href="https://youtube.com/@heiki-theater" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <i class="bi bi-youtube"></i>
+            YouTube(サブ)
+          </a>
+
+          <a class="sns-btn" href="https://x.com/leoved_kuru" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <i class="bi bi-twitter"></i>
+            Twitter(メイン)
           </a>
 
           <a class="sns-btn" href="https://x.com/mootchiiy" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-            <svg class="sns-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path fill="#1DA1F2" d="M23 4.6c-.7.3-1.4.6-2.2.7.8-.5 1.4-1.3 1.7-2.2-.8.5-1.6.9-2.6 1.1C19.6 3.6 18.5 3 17.3 3c-2 0-3.6 1.6-3.6 3.6 0 .3 0 .6.1.9C10.1 7.4 6.1 5.5 3.4 2.6c-.4.6-.6 1.3-.6 2 0 1.3.6 2.4 1.6 3-.6 0-1.1-.2-1.6-.4v.1c0 2 1.4 3.7 3.3 4.1-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.2 3.1 2.2-1.1.9-2.4 1.4-3.9 1.4H6c1.6 1 3.4 1.6 5.4 1.6 6.5 0 10-5.4 10-10v-.5c.7-.5 1.3-1.1 1.7-1.8-.6.3-1.3.5-2 .6z"/>
-            </svg>
-            Twitter
+            <i class="bi bi-twitter"></i>
+            Twitter(サブ)
+          </a>
+
+          <a class="sns-btn" href="https://kakuyomu.jp/users/melting_star" target="_blank" rel="noopener noreferrer" aria-label="Kakuyomu">
+            カクヨム
+          </a>
+
+          <a class="sns-btn" href="https://note.com/saihou_heiki" target="_blank" rel="noopener noreferrer" aria-label="note">
+            note
+          </a>
+
+          <a class="sns-btn" href="https://www.pixiv.net/users/64641168" target="_blank" rel="noopener noreferrer" aria-label="pixiv">
+            pixiv
           </a>
         </div>
       </div>
@@ -176,7 +197,7 @@
   </div>
 
   <footer>
-    Copyright © 2025 さいほうへいき
+    Copyright © 2025-2026 さいほうへいき
   </footer>
 
   <script>
@@ -254,11 +275,11 @@
   // 仕様: 配列は二次配列で、index 0 = 漢字群、1 = かな群、2 = 英字群
   const SURPRISE_SETS = [
     // 漢字候補（繋げて駅名にする）
-    ['花','森','木','土','山','月','葉','石','大','小','里','音','桜','梅','水','赤','根','柚','子','場','牛','鳥','馬','和','風','嵐','蛇','轍','道','持','港','川','河','悠','絶','滅','冥','葱','雷','雨','露','知','域','生','息','浮','原','神','手','柔','岩','決','結','晶','草','樹','森','竹','忘','如','月','星','弓','矢','剣','鉄','金','銅','鹿','錫','鈴','犬','国','力','春','夏','秋','冬','可','罰','顎','黒','穴','粋','五','七','八','住','百','点','満','兎','田','栗','雪','愚','仮','面','之','愉','快','続','氷','憶','麦','綱','面','綿','丸','亀','製','麺','労','働','先','輩','明','暗','潮','塩','汐','滝','世','術','由','白','湯','発','開','超','劣','感','電','凍','燃','焼','裂','作','創','弾','王','皇','菊','聴','救','鷲','泉','出','雲','元','下','基','本','戸','都','北','西','東','南','京','奈','羅','呼','薨','申','猿','猪','柵','麗','拠','礼','札','読','甲','交','花','彁','椦'],
+    ['花','森','木','土','山','月','葉','石','大','小','里','音','桜','梅','水','赤','根','柚','子','場','牛','鳥','馬','和','風','嵐','蛇','轍','道','持','港','川','河','悠','絶','滅','冥','葱','雷','雨','露','知','域','生','息','浮','原','神','手','柔','岩','決','結','晶','草','樹','森','竹','忘','如','月','星','弓','矢','剣','鉄','金','銅','鹿','錫','鈴','犬','国','力','春','夏','秋','冬','可','罰','顎','黒','穴','粋','五','七','八','住','百','点','満','兎','田','栗','雪','愚','仮','面','之','愉','快','続','氷','憶','麦','綱','面','綿','丸','亀','製','麺','労','働','先','輩','明','暗','潮','塩','汐','滝','世','術','由','白','湯','発','開','超','劣','感','電','凍','燃','焼','裂','作','創','弾','王','皇','菊','聴','救','鷲','泉','出','雲','元','下','基','本','戸','都','北','西','東','南','京','奈','羅','呼','薨','申','猿','猪','柵','麗','拠','礼','札','読','甲','交','花','彁','椦','椛','柊','榊','梛','棗','珀','瑚','湊','颯','翠','蒼','蓮','碧','煌','楓','朔','瑛','凛','昴','紬','惺','綾','斎','遼','鷹','稜','禄','莞','渚','悠','零','壱','弐','参','肆','伍','陸','漆','捌','玖','拾','EX','Z','X','Ω','Δ','α','β','Λ','Σ','Ψ',],
     // かな候補（ルビに使う）
-    ['はな','もり','き','つち','やま','つき','は','いし','だい','しょう','さと','おと','さくら','うめ','みず','あか','ね','ゆず','こ','ば','うし','とり','うま','わ','かぜ','あらし','へび','わだち','みち','もつ','みなと','かわ','かわ','ゆう','ぜつ','めつ','めい','ねぎ','かみなり','あめ','つゆ','しる','いき','いき','いき','うかぶ','はら','かみ','て','やわら','いわ','けつ','むすぶ','しょう','くさ','じゅ','もり','たけ','わすれる','ごとし','つき','ほし','ゆみ','や','つるぎ','てつ','きん','どう','しか','すず','すず','いぬ','くに','ちから','はる','なつ','あき','ふゆ','か','ばつ','あご','くろ','あな','いき','ご','しち','はち','すむ','ひゃく','てん','まん','うさぎ','た','くり','ゆき','ぐ','かり','めん','の','ゆ','かい','つづく','こおり','おく','むぎ','つな','めん','めん','まる','かめ','せい','めん','ろう','はたらく','さき','はい','あかるい','くらい','しお','しお','しお','たき','よ','じゅつ','ゆ','しろ','ゆ','はつ','ひらく','ちょう','おとる','かん','でん','こおる','もえる','やく','さく','つくる','そう','だん','おう','こう','きく','きく','すくう','わし','いずみ','で','くも','もと','した','もと','ほん','と','みやこ','きた','にし','ひがし','みなみ','きょう','な','ら','よぶ','こう','さる','さる','いのしし','さく','れい','きょ','れい','ふだ','よむ','こう','こう','フラワー','か','しょう'],
+    ['はな','もり','き','つち','やま','つき','は','いし','だい','しょう','さと','おと','さくら','うめ','みず','あか','ね','ゆず','こ','ば','うし','とり','うま','わ','かぜ','あらし','へび','わだち','みち','もつ','みなと','かわ','かわ','ゆう','ぜつ','めつ','めい','ねぎ','かみなり','あめ','つゆ','しる','いき','いき','いき','うかぶ','はら','かみ','て','やわら','いわ','けつ','むすぶ','しょう','くさ','じゅ','もり','たけ','わすれる','ごとし','つき','ほし','ゆみ','や','つるぎ','てつ','きん','どう','しか','すず','すず','いぬ','くに','ちから','はる','なつ','あき','ふゆ','か','ばつ','あご','くろ','あな','いき','ご','しち','はち','すむ','ひゃく','てん','まん','うさぎ','た','くり','ゆき','ぐ','かり','めん','の','ゆ','かい','つづく','こおり','おく','むぎ','つな','めん','めん','まる','かめ','せい','めん','ろう','はたらく','さき','はい','あかるい','くらい','しお','しお','しお','たき','よ','じゅつ','ゆ','しろ','ゆ','はつ','ひらく','ちょう','おとる','かん','でん','こおる','もえる','やく','さく','つくる','そう','だん','おう','こう','きく','きく','すくう','わし','いずみ','で','くも','もと','した','もと','ほん','と','みやこ','きた','にし','ひがし','みなみ','きょう','な','ら','よぶ','こう','さる','さる','いのしし','さく','れい','きょ','れい','ふだ','よむ','こう','こう','フラワー','か','しょう','もみじ','ひいらぎ','さかき','なぎ','なつめ','はく','こ','みなと','はやて','すい','あお','れん','あお','こう','かえで','さく','えい','りん','すばる','つむぎ','せい','あや','さい','りょう','たか','りょう','ろく','かん','なぎさ','ゆう','ゼロ','ワン','ツー','スリー','フォー','ファイブ','シックス','セブン','エイト','ナイン','テン','イーエックス','ゼット','エックス','オメガ','デルタ','アルファ','ベータ','ラムダ','シグマ','プサイ',],
     // 英語候補（アルファベット単体や短いフレーズ）
-        ['hana','mori','ki','tsuchi','yama','tsuki','ha','ishi','dai','shou','sato','oto','sakura','ume','mizu','aka','ne','yuzu','ko','ba','ushi','tori','uma','wa','kaze','arashi','hebi','wadachi','michi','motsu','minato','kawa','kawa','yuu','zetsu','metsu','mei','negi','kaminari','ame','tsuyu','shiru','iki','iki','iki','ukabu','hara','kami','te','yawara','iwa','ketsu','musubu','shou','kusa','ju','mori','take','wasureru','gotoshi','tsuki','hoshi','yumi','ya','tsurugi','tetsu','kin','dou','shika','suzu','suzu','inu','kuni','chikara','haru','natsu','aki','fuyu','ka','batsu','ago','kuro','ana','iki','go','shichi','hachi','sumu','hyaku','ten','man','usagi','ta','kuri','yuki','gu','kari','men','no','yu','kai','tsuzuku','koori','oku','mugi','tsuna','men','men','maru','kame','sei','men','rou','hataraku','saki','hai','akarui','kurai','shio','shio','shio','taki','yo','jutsu','yu','shiro','yu','hatsu','hiraku','chou','otoru','kan','den','kooru','moeru','yaku','saku','tsukuru','sou','dan','ou','kou','kiku','kiku','sukuu','washi','izumi','de','kumo','moto','shita','moto','hon','to','miyako','kita','nishi','higashi','minami','kyou','na','ra','yobu','kou','saru','saru','inosshishi','saku','rei','kyo','rei','fuda','yomu','kou','kou',' Flower ','ka','shou']
+        ['hana','mori','ki','tsuchi','yama','tsuki','ha','ishi','dai','shou','sato','oto','sakura','ume','mizu','aka','ne','yuzu','ko','ba','ushi','tori','uma','wa','kaze','arashi','hebi','wadachi','michi','motsu','minato','kawa','kawa','yuu','zetsu','metsu','mei','negi','kaminari','ame','tsuyu','shiru','iki','iki','iki','ukabu','hara','kami','te','yawara','iwa','ketsu','musubu','shou','kusa','ju','mori','take','wasureru','gotoshi','tsuki','hoshi','yumi','ya','tsurugi','tetsu','kin','dou','shika','suzu','suzu','inu','kuni','chikara','haru','natsu','aki','fuyu','ka','batsu','ago','kuro','ana','iki','go','shichi','hachi','sumu','hyaku','ten','man','usagi','ta','kuri','yuki','gu','kari','men','no','yu','kai','tsuzuku','koori','oku','mugi','tsuna','men','men','maru','kame','sei','men','rou','hataraku','saki','hai','akarui','kurai','shio','shio','shio','taki','yo','jutsu','yu','shiro','yu','hatsu','hiraku','chou','otoru','kan','den','kooru','moeru','yaku','saku','tsukuru','sou','dan','ou','kou','kiku','kiku','sukuu','washi','izumi','de','kumo','moto','shita','moto','hon','to','miyako','kita','nishi','higashi','minami','kyou','na','ra','yobu','kou','saru','saru','inosshishi','saku','rei','kyo','rei','fuda','yomu','kou','kou',' Flower ','ka','shou','momiji','hiiragi','sakaki','nagi','natsume','haku','ko','minato','hayate','sui','ao','ren','ao','kou','kaede','saku','ei','rin','subaru','tsumugi','sei','aya','sai','ryou','taka','ryou','roku','kan','nagisa','yuu',' Zero ',' One ',' Two ',' Three ',' Four ',' Five ',' Six ',' Seven ',' Eight ',' Nine ',' Ten ',' EX ',' Z ',' X ',' Omega ',' Delta ',' Alpha ',' Beta ',' Lambda ',' Sigma ',' Psi ',]
 
   ];
 
