@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>駅名標ジェネレータ by さいほうへいき</title>
+  <title>駅名標ジェネレータ by さいほうへいき (Outdated v1.0)</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#f6fbff;--card:#fff;--muted:#6b8296;--accent:#cfe8ff;--btn-bg:#fff;--btn-border:#d9eefc}
     *{box-sizing:border-box}
     body{margin:0;font-family:"Noto Sans JP", system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:linear-gradient(180deg,var(--bg),#f8fbff);color:#123}
-    header{padding:12px 18px;border-bottom:1px solid #e2f0ff;background:linear-gradient(180deg,rgba(230,244,255,.95),rgba(230,244,255,.7));position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;justify-content:space-between}
     header h1{margin:0;font-size:18px;font-weight:700}
     .wrap{max-width:1200px;margin:18px auto;padding:18px;display:grid;grid-template-columns:1fr 420px;gap:18px}
     @media(max-width:980px){.wrap{grid-template-columns:1fr;padding:12px}}
@@ -39,11 +38,19 @@
     .notice{background:#fff7f0;border-left:4px solid #ffd1a8;padding:12px;border-radius:8px;color:#5a3b2b}
     .howto{background:#f7fffb;border-left:4px solid #c8ffd9;padding:12px;border-radius:8px;color:#2e6b00}
     a.sns-btn:hover{opacity:0.95}
+    header{padding:12px 18px;border-bottom:1px solid #e2f0ff;background:linear-gradient(180deg,rgba(230,244,255,.95),rgba(230,244,255,.7));position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;justify-content:space-between}
+    header{padding:12px 18px;display:flex;justify-content:space-between;align-items:flex-start;}
+    .latest{margin:4px 0 0;font-size:13px;color:#666;}
   </style>
 </head>
 <body>
   <header>
-    <h1>駅名標ジェネレータ by さいほうへいき</h1>
+    <div>
+      <h1>駅名標ジェネレータ by さいほうへいき (Outdated v1.0)</h1>
+      <p class="latest">
+        Latest is <a href="https://replayshells.github.io/station/">here</a>.
+      </p>
+    </div>
     <div class="header-actions">
       <!-- Header YouTube button (opens in new tab) -->
       <a class="sns-btn" href="https://www.youtube.com/@saihou-heiki" target="_blank" rel="noopener noreferrer" title="さいほうへいき YouTube">
