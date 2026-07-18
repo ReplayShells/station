@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>駅名標ジェネレータ by さいほうへいき</title>
+  <title>駅名標ジェネレータ(仮) by さいほうへいき(v1.1)</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     :root{--bg:#f6fbff;--card:#fff;--muted:#6b8296;--accent:#cfe8ff;--btn-bg:#fff;--btn-border:#d9eefc}
     *{box-sizing:border-box}
     body{margin:0;font-family:"Noto Sans JP", system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:linear-gradient(180deg,var(--bg),#f8fbff);color:#123}
-    header{padding:12px 18px;border-bottom:1px solid #e2f0ff;background:linear-gradient(180deg,rgba(230,244,255,.95),rgba(230,244,255,.7));position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;justify-content:space-between}
     header h1{margin:0;font-size:18px;font-weight:700}
     .wrap{max-width:1200px;margin:18px auto;padding:18px;display:grid;grid-template-columns:1fr 420px;gap:18px}
     @media(max-width:980px){.wrap{grid-template-columns:1fr;padding:12px}}
@@ -43,13 +42,59 @@
     a.sns-btn:hover{opacity:0.95}
     .preview-buttons{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:18px;flex-wrap:wrap;}
     .preview-buttons button{padding:12px 20px;font-size:15px;}
+    header{padding:12px 18px;border-bottom:1px solid #e2f0ff;background:linear-gradient(180deg,rgba(230,244,255,.95),rgba(230,244,255,.7));position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;justify-content:space-between}
+//    header{padding:12px 18px;display:flex;justify-content:space-between;align-items:flex-start;}
+    .latest{margin:4px 0 0;font-size:13px;color:#666;}
   </style>
+
+  <meta name="description" content="駅名標を簡単にデザインできる無料の駅名標ジェネレータ。背景画像やアイコンを追加し、オリジナルの駅名標をPNG画像としてダウンロードできます！">
+  <meta name="keywords" content="鉄道,デザイン,PNG,画像生成">
+  <meta name="author" content="さいほうへいき">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://replayshells.github.io/station/">
+  <meta name="theme-color" content="#cfe8ff">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="駅名標ジェネレータ(仮) by さいほうへいき">
+  <meta property="og:title" content="駅名標ジェネレータ(仮) by さいほうへいき(v1.1) - オリジナル駅名標を無料作成">
+  <meta property="og:description" content="駅名・ルビ・英語表記・背景画像などを自由に設定して、オリジナル駅名標をPNG画像として作成できます。">
+  <meta property="og:url" content="https://replayshells.github.io/station/">
+  <meta property="og:image" content="https://replayshells.github.io/station/imgs/ogp.png">
+  <meta property="og:image:width" content="977">
+  <meta property="og:image:height" content="512">
+  <meta property="og:locale" content="ja_JP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="駅名標ジェネレータ(仮) by さいほうへいき(v1.1) - 無料で駅名標を作成！">
+  <meta name="twitter:description" content="オリジナル駅名標をブラウザだけで簡単作成。できたらPNGで保存できます！">
+  <meta name="twitter:image" content="https://replayshells.github.io/station/imgs/ogp.png">
+
+  <meta name="application-name" content="駅名標ジェネレータ(仮)">
+  <meta name="apple-mobile-web-app-title" content="駅名標ジェネレータ(仮)">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"駅名標ジェネレータ(仮) by さいほうへいき(v1.1)",
+    "applicationCategory":"DesignApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"HTML5 Canvas",
+    "url":"https://example.com/",
+    "description":"オリジナル駅名標を作成しPNG画像として保存できる無料Webアプリです。",
+    "author":{
+      "@type":"Person",
+      "name":"さいほうへいき"
+    },
+    "image":"https://example.com/images/ogp.jpg"
+  }
+  </script>
 </head>
 <body>
   <header>
-    <h1>駅名標ジェネレータ by さいほうへいき</h1>
+    <h1>駅名標ジェネレータ(仮) by さいほうへいき(v1.1)</h1>
     <div class="header-actions">
-      <!-- Header YouTube button (opens in new tab) -->
+      <!-- ヘッダー宣伝機 -->
       <a class="sns-btn"
          href="https://www.youtube.com/@saihou-heiki"
          target="_blank"
@@ -81,7 +126,7 @@
           <select id="canvasSize">
             <option value="standard">標準（1200×600）</option>
             <option value="640x256">640×256</option>
-            <option value="480x240">480×240（例）</option>
+            <option value="480x240">480×240</option>
           </select>
         </label>
 
@@ -126,7 +171,7 @@
     </aside>
   </main>
 
-  <!-- bottom area: socials, disclaimer, quick how-to -->
+  <!-- SNS・使い方・ライセンス -->
   <div class="bottom-area">
     <div class="bottom-row">
       <div class="card">
@@ -223,7 +268,7 @@
   const bgMode = document.getElementById('bgMode');
   const surpriseBtn = document.getElementById('surpriseBtn');
 
-  // station circular list
+  // 初期謎環状線
   const CIRCULAR = [
     {jp:'裁縫兵器', kana:'さいほうへいき', en:'Saihou Heiki'},
     {jp:'餅井', kana:'もっちい', en:'Motchiy'},
@@ -237,7 +282,7 @@
     {jp:'丸亀先輩', kana:'まるがめせんぱい', en:'Marugame Senpai'}
   ];
 
-  // THEMES (basic palettes; special themes handled separately)
+  // テーマパレット
   const THEMES = {
     sky:{bg:'#ffffff', border:'#cfe8ff', bar:'#eef7ff', text:'#10324a', sub:'#5f7d91', arrow:'#8cc6ff', sep:'#b8e1ff'},
     purple:{bg:'#faf8ff', border:'#e7dcfb', bar:'#f3ecff', text:'#30284f', sub:'#6a5c99', arrow:'#9c85d9', sep:'#d5c7ff'},
@@ -679,7 +724,6 @@
     nextIn.value = next.jp; nextEnIn.value = next.en;
   }
 
-  // ---------- EASTER EGG: dynamic theme option insertion ----------
   const BASE_THEME_OPTIONS = [
     ['sky','薄水色'],['purple','薄紫'],['pink','ピンク'],['teal','青緑'],
     ['mono','モノクロ'],['night','夜空'],['retro','レトロ'],
@@ -696,7 +740,6 @@
       themeSel.appendChild(opt);
     });
 
-    // determine which special themes to show based on company name
     const company = companyIn.value.trim();
     if(company === "Twotone Cosmos" || company === "ツートン・コスモス"){
       addSpecialThemeOption('hoshiYume');
@@ -723,20 +766,20 @@
     themeSel.appendChild(opt);
   }
 
-  // ---------- SURPRISE: ランダム駅名生成ロジック ----------
+  // ランダム駅名
   function generateRandomStationName(){
     // SURPRISE_SETS is [kanjiArray, kanaArray, engArray]
     const jpArr = SURPRISE_SETS[0];
     const kanaArr = SURPRISE_SETS[1];
     const engArr = SURPRISE_SETS[2];
 
-    // 1〜5個をランダムに連結（カテゴリごとに個数はランダムにしてOK）
+    // 1～5個をランダムに連結
     const jpLen = Math.floor(Math.random() * 5) + 1;
     let one = [Math.floor(Math.random()*jpArr.length), Math.floor(Math.random()*jpArr.length), Math.floor(Math.random()*jpArr.length), Math.floor(Math.random()*jpArr.length), Math.floor(Math.random()*jpArr.length),Math.floor(Math.random()*jpArr.length)]
 
     let jp = ''; for(let i=0;i<jpLen;i++) jp += jpArr[one[i]];
     let kana = ''; for(let i=0;i<jpLen;i++) kana += kanaArr[one[i]];
-    // 英語は読みやすさのため単語連結（スペースやハイフンなし）
+    // 英語は読みやすさのため単語連結
     let eng = ''; for(let i=0;i<jpLen;i++) eng += engArr[one[i]];
     return { jp, kana, en: eng };
   }
